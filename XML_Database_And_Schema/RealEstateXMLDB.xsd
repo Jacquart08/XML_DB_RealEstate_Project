@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <xs:annotation>
 	<xs:documentation xml:lang="eng">
 		This a An XML schema that represent the design of our Real Estate convenient Database.
@@ -63,7 +63,7 @@
 						<xs:element  name="PropertyID" type="xs:IDREF"/>
 						<xs:element  name="LandlordName" type="xs:string"/>
 						<xs:element  name="LandlordFirstName" type="xs:string"/>
-						<xs:element  name="LandLordAddress" type="xs:string"/>
+						<xs:element  name="LandlordAddress" type="xs:string"/>
 						<xs:element  name="LandlordCity" type="xs:string"/>
 						<xs:element  name="LandlordZIPcode" type="xs:integer"/>
 						<xs:element  name="LandlordIDCard" type="xs:string"/>
@@ -159,6 +159,4 @@
 		
 		</xs:sequence>
 	</xs:complextype>
-</xs:element>
-
 </xs:schema>
