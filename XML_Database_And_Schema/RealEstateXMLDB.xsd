@@ -24,19 +24,33 @@
 						<xs:element  name="Floors" type="xs:integer"/> <!--number of floors for house, or how heigh is an apprtement, 0 for ground floor-->
 						<xs:element  name="ExteriorCommodity" type="xs:boolean"/> <!--Does the property have an exterior commodity-->
 						<xs:element  name="HeatingMode" type="xs:string"/> <!--How the heating mode is handle in the property-->
+						<xs:element  name="EnergyDiagnostic" type="xs:string"/> <!--Mandatory to express it with a letter here in France-->
 						<xs:element  name="Address" type="xs:string"/>
 						<xs:element  name="City" type="xs:string"/>
 						<xs:element  name="ZIPCode" type="xs:integer"/> <!--The three last element are basically the address-->
 						<xs:element  name="Size" type="xs:float"/> <!--How many square meters in the house-->
+						<xs:element  name="NumberOfRooms" type="xs:integer"/>
+						<xs:element  name="PriceEstimation" type="xs:integer"/> <!--The price estimation is on purpose an integer as it will be given like this-->
+						<xs:element  name="Attractiveness" type="xs:float"/> <!--Here is the result of the operation : SUM(ClosestSupermarket+ClosestPublicTransport+...+ClosestHostpital)/4 (because 4 variables in the addition)-->
+						<xs:element  name="ClosestSupermarket" type="xs:float"/> <!--The following closest will be use to calculate the ration of attractiveness in the XSL transformations-->
+						<xs:element  name="ClosestPublicTransport" type="xs:float"/>
+						<xs:element  name="ClosestSchool" type="xs:float"/> <!--Note for the group, I replaced here BANK by School because I think it is more pertinent-->
+						<xs:element  name="ClosestHospital" type="xs:float"/>
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
 			
 			<!--Here is the creation of the second table, the one in charge of the RealEstate informations parts-->
-			<xs:element name="RealEstateAgent" type="Agent" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="RealEstateAgent" type="Agent" minOccurs="1" maxOccurs="unbounded"> <!--MinOccurs 1 because the system is used by an agent so at least 1 person-->
 				<xs:complextype name="Agent">
 					<xs:sequence>
-						<xs:element .../>
+						<xs:element  name="AgentID" type="xs:ID"/> <!--the same manner as the property table, we will gather here the informations about the agent-->
+						<xs:element name="PropertyID" type="xs:IDREF"/>
+						<xs:element  name="AgentName" type="xs:string"/>
+						<xs:element  name="AgentFirstName" type="xs:string"/>
+						<xs:element  name="AgencySIRET" type="xs:string"/>
+						<xs:element  name="BirthDate" type="xs:date"/>
+						<xs:element  name="AgentPercentage" type="xs:float"/> <!--The percentage isn't a key so we will not be able to reference it in the schema, however it can be used the for the xsl-->
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
@@ -45,7 +59,15 @@
 			<xs:element name="LandLordInformations" type="Landlord" minOccurs="0" maxOccurs="unbounded">
 				<xs:complextype name="Landlord">
 					<xs:sequence>
-						<xs:element .../>
+						<xs:element  name="LandlordID" type="xs:ID"/>
+						<xs:element  name="PropertyID" type="xs:IDREF"/>
+						<xs:element  name="LandlordName" type="xs:string"/>
+						<xs:element  name="LandlordFirstName" type="xs:string"/>
+						<xs:element  name="LandLordAddress" type="xs:string"/>
+						<xs:element  name="LandlordCity" type="xs:string"/>
+						<xs:element  name="LandlordZIPcode" type="xs:integer"/>
+						<xs:element  name="LandlordIDCard" type="xs:string"/>
+						<xs:element  name="LandlordBankDetails" type="xs:string"/>
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
@@ -54,7 +76,13 @@
 			<xs:element name="BuyerInformations" type="Buyer" minOccurs="0" maxOccurs="unbounded">
 				<xs:complextype name="Buyer">
 					<xs:sequence>
-						<xs:element .../>
+						<xs:element  name="BuyerID" type="xs:ID"/>
+						<xs:element  name="BuyerName" type="xs:string"/>
+						<xs:element  name="BuyerFirstName" type="xs:string"/>
+						<xs:element  name="BuyerAddress" type="xs:string"/>
+						<xs:element  name="BuyerCity" type="xs:string"/>
+						<xs:element  name="BuyerZIPcode" type="xs:integer"/>
+						<xs:element  name="BuyerIDCard" type="xs:string"/>
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
@@ -63,7 +91,15 @@
 			<xs:element name="NotaryInformations" type="Notary" minOccurs="1" maxOccurs="unbounded">
 				<xs:complextype name="Notary">
 					<xs:sequence>
-						<xs:element .../>
+						<xs:element  name="NotaryID" type="xs:ID"/> <!--the same manner as the property table, we will gather here the informations about the agent-->
+						<xs:element  name="InvoiceID" type="xs:IDREF" />
+						<xs:element  name="NotaryName" type="xs:string"/>
+						<xs:element  name="NotaryFirstName" type="xs:string"/>
+						<xs:element  name="NotaryAddress" type="xs:string"/>
+						<xs:element  name="NotaryCity" type="xs:string"/>
+						<xs:element  name="NotaryZIPcode" type="xs:integer"/> <!--The address of the notary is important because it can be usefull to query the cosest one to the property-->
+						<xs:element  name="NotarySIRET" type="xs:string"/>
+						<xs:element  name="NotaryPercentage" type="xs:float"/>
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
@@ -72,7 +108,14 @@
 			<xs:element name="TargetedCustomerInformation" type="TargetedCustomer" minOccurs="0" maxOccurs="unbounded">
 				<xs:complextype name="TargetedCustomer">
 					<xs:sequence>
-						<xs:element .../>
+						<xs:element  name="CustomerID" type="xs:ID"/>
+						<xs:element  name="CustomerName" type="xs:string"/>
+						<xs:element  name="CustomerFirstName" type="xs:string"/>
+						<xs:element  name="CustomerBirthDate" type="xs:date"/> <!--the following informations we gather are here in order to identify the profile of the customer and by definition the properties it is pertinant to advertise to him-->
+						<xs:element  name="CustomerKids" type="xs:boolean"/>
+						<xs:element  name="CustomerProfession" type="xs:string"/>
+						<xs:element  name="CustomerLoan" type="xs:boolean"/>
+						<xs:element  name="CampainMethod" type="xs:string"/>
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
@@ -81,7 +124,19 @@
 			<xs:element name="Sales_Table" type="Sales" minOccurs="0" maxOccurs="unbounded">
 				<xs:complextype name="Sales">
 					<xs:sequence>
-						<xs:element .../>
+						<xs:element  name="InvoiceID" type="xs:ID"/>
+						<xs:element  name="InvoiceDate" type="xs:date"/>
+						<xs:element  name="TypeOfContract" type="xs:string"/>
+						<xs:element  name="PropertyID" type="xs:IDREF"/>
+						<xs:element  name="LandlordID" type="xs:IDREF"/>
+						<xs:element  name="BuyerID" type="xs:IDREF"/>
+						<xs:element  name="AgentID" type="xs:IDREF"/>
+						<xs:element  name="NotaryID" type="xs:IDREF"/>
+						<xs:element  name="ZIPCode" type="xs:string"/>
+						<xs:element  name="Price" type="xs:integer"/>
+						<xs:element  name="NotaryPercentage" type="xs:float"/>
+						<xs:element  name="AgentPercentage" type="xs:float"/>
+						<xs:element  name="FinalPrice" type="xs:float"/>
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
@@ -90,7 +145,13 @@
 			<xs:element name="AdvertisingCampaign_table" type="AdvertisingCampaign" minOccurs="0" maxOccurs="unbounded">
 				<xs:complextype name="AdvertisingCampaign">
 					<xs:sequence>
-						<xs:element .../>
+						<xs:element  name="CampaignID" type="xs:ID"/>
+						<xs:element  name="PropertyID" type="xs:IDREF"/>
+						<xs:element  name="Attractiveness" type="xs:float"/>
+						<xs:element  name="CustomerID" type="xs:IDREF"/>
+						<xs:element  name="TypeOfContract" type="xs:string"/>
+						<xs:element  name="TypeOfProperty" type="xs:string"/>
+						<xs:element  name="CampaignMethod" type="xs:string"/>
 					</xs:sequence>
 				</xs:complextype>
 			</xs:element>
