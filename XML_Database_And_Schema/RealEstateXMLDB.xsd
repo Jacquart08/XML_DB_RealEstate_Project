@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:annotation>
+	<xs:documentation xml:lang="eng">
+		This a An XML schema that represent the design of our Real Estate convenient Database.
+		Is with different tables that aim to simplify different tasks of a real estate agent.
+	</xs:documentation>
+</xs:annotation>
+
+<!--We are creating here the Database as an element which will contain the different tables of our DB-->
+<xs:element name="RealEstate_DateBase" type="RealEstateXMLDB"/>
+	<xs:complextype name="RealEstateXMLDB">
+		<xs:sequence>
+			<!--We will here create our first table which is directly related to the properties the agent has to sell-->
+			<xs:element name="Properties" type="Property" minOccurs="0" maxOccurs="unbounded">
+			
+				<!--The data base has been designed around the properties table. In fact without properties to sell, the whole model is pointless.
+				This table will have a primary key ID and will contain a lot of informations about the houses/appartements.-->
+				<xs:complextype name="Property">
+					<xs:sequence>
+						<xs:element  name="PropertyID" type="xs:ID"/>
+						<xs:element  name="TypeOfContract" type="xs:string"/> <!--Type of contract can be long rent, short rent, to sell, ...-->
+						<xs:element  name="TypeOfProperty" type="xs:string"/> <!--The type of property (appartment, house, garage, ...)-->
+						<xs:element  name="Floors" type="xs:integer"/> <!--number of floors for house, or how heigh is an apprtement, 0 for ground floor-->
+						<xs:element  name="ExteriorCommodity" type="xs:boolean"/> <!--Does the property have an exterior commodity-->
+						<xs:element  name="HeatingMode" type="xs:string"/> <!--How the heating mode is handle in the property-->
+						<xs:element  name="Address" type="xs:string"/>
+						<xs:element  name="City" type="xs:string"/>
+						<xs:element  name="ZIPCode" type="xs:integer"/> <!--The three last element are basically the address-->
+						<xs:element  name="Size" type="xs:float"/> <!--How many square meters in the house-->
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+			
+			<!--Here is the creation of the second table, the one in charge of the RealEstate informations parts-->
+			<xs:element name="RealEstateAgent" type="Agent" minOccurs="1" maxOccurs="unbounded">
+				<xs:complextype name="Agent">
+					<xs:sequence>
+						<xs:element .../>
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+			
+			<!--We will here crate the table which will contains all the informations about the Landlords who want to sell their properties-->
+			<xs:element name="LandLordInformations" type="Landlord" minOccurs="0" maxOccurs="unbounded">
+				<xs:complextype name="Landlord">
+					<xs:sequence>
+						<xs:element .../>
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+			
+			<!--As before, creation of a new table, for the informations regarding the buyer this time-->
+			<xs:element name="BuyerInformations" type="Buyer" minOccurs="0" maxOccurs="unbounded">
+				<xs:complextype name="Buyer">
+					<xs:sequence>
+						<xs:element .../>
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+			
+			<!--Same reasonment as before, but here for the legal part of the sales, the mandatory Notary !!-->
+			<xs:element name="NotaryInformations" type="Notary" minOccurs="1" maxOccurs="unbounded">
+				<xs:complextype name="Notary">
+					<xs:sequence>
+						<xs:element .../>
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+			
+			<!--A good idea would be to collect some informations about pontential buyers in order to do some targeted advertisment campaign-->
+			<xs:element name="TargetedCustomerInformation" type="TargetedCustomer" minOccurs="0" maxOccurs="unbounded">
+				<xs:complextype name="TargetedCustomer">
+					<xs:sequence>
+						<xs:element .../>
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+			
+			<!--We will here handle the final sale of a property in order to generate the invoices-->
+			<xs:element name="Sales_Table" type="Sales" minOccurs="0" maxOccurs="unbounded">
+				<xs:complextype name="Sales">
+					<xs:sequence>
+						<xs:element .../>
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+			
+			<!--As teased before we will use the data collected in order to focus the marketing of the company-->
+			<xs:element name="AdvertisingCampaign_table" type="AdvertisingCampaign" minOccurs="0" maxOccurs="unbounded">
+				<xs:complextype name="AdvertisingCampaign">
+					<xs:sequence>
+						<xs:element .../>
+					</xs:sequence>
+				</xs:complextype>
+			</xs:element>
+		
+		
+		</xs:sequence>
+	</xs:complextype>
+</xs:element>
+
+</xs:schema>
