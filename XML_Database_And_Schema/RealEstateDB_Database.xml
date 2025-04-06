@@ -9,8 +9,8 @@
 		<EnergyDiagnostic>E</EnergyDiagnostic>
 		<Address>94 rue du bac</Address>
 		<City>Paris</City>
-		<ZIPcode>75006</ZIPcode>
-		<Size>154,8</Size>
+		<ZIPCode>75006</ZIPCode>
+		<Size>154.8</Size>
 		<NumberOfRooms>4</NumberOfRooms>
 		<PriceEstimation>800000</PriceEstimation>
 		<Attractiveness>0.5</Attractiveness>
