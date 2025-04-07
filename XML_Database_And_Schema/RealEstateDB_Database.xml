@@ -15,7 +15,7 @@
 		<PriceEstimation>800000</PriceEstimation>
 		<Attractiveness>0.5</Attractiveness>
 		<ClosestSupermarket>0.5</ClosestSupermarket>
-		<ClosestPublicTransports>0.5</ClosestPublicTransports>
+		<ClosestPublicTransport>0.5</ClosestPublicTransport>
 		<ClosestSchool>0.5</ClosestSchool>
 		<ClosestHospital>0.5</ClosestHospital>
 	</Properties>

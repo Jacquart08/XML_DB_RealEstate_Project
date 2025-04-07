@@ -8,7 +8,7 @@
 </xs:annotation>
 
 <!--We are creating here the Database as an element which will contain the different tables of our DB-->
-<xs:element name="RealEstate_DateBase" type="RealEstateXMLDB"/>
+<xs:element name="RealEstate_Datebase" type="RealEstateXMLDB"/>
 	<xs:complextype name="RealEstateXMLDB">
 		<xs:sequence>
 			<!--We will here create our first table which is directly related to the properties the agent has to sell-->
