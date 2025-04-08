@@ -4,7 +4,7 @@
 		<TypeOfContract>Sales</TypeOfContract>
 		<TypeOfProperty>House</TypeOfProperty>
 		<Floors>2</Floors>
-		<ExteriorCommodity>1</ExteriorCommodity>
+		<ExteriorCommodity>true</ExteriorCommodity>
 		<HeatingMode>Fuel</HeatingMode>
 		<EnergyDiagnostic>E</EnergyDiagnostic>
 		<Address>94 rue du bac</Address>
@@ -26,7 +26,7 @@
 		<AgentName>Doe</AgentName>
 		<AgentFirstName>John</AgentFirstName>
 		<AgencySIRET>123AB456</AgencySIRET>
-		<BirthDate>21-11-1963</BirthDate>
+		<BirthDate>1963-21-11</BirthDate>
 		<AgentPercentage>0.12</AgentPercentage>
 	</RealEstateAgent>
 	
@@ -68,16 +68,16 @@
 		<CustomerID>C001</CustomerID>
 		<CustomerName>Balan</CustomerName>
 		<CustomerFirstName>Arnaud</CustomerFirstName>
-		<CustomerBirthDate>12-06-1982</CustomerBirthDate>
-		<CustomerKids>1</CustomerKids>
+		<CustomerBirthDate>1982-12-6</CustomerBirthDate>
+		<CustomerKids>true</CustomerKids>
 		<CustomerProfession>Lawyer</CustomerProfession>
-		<CustomerLoan>0</CustomerLoan>
+		<CustomerLoan>false</CustomerLoan>
 		<CampainMethod>Internet</CampainMethod>
 	</TargetedCustomerInformation>
 	
 	<Sales_Table>
 		<InvoiceID>I001</InvoiceID>
-		<InvoiceDate>23-01-2024</InvoiceDate>
+		<InvoiceDate>2024-01-23</InvoiceDate>
 		<TypeOfContract>Sales</TypeOfContract>
 		<PropertyID>P001</PropertyID>
 		<LandlordID>L001</LandlordID>
