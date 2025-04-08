@@ -26,7 +26,7 @@
 		<AgentName>Doe</AgentName>
 		<AgentFirstName>John</AgentFirstName>
 		<AgencySIRET>123AB456</AgencySIRET>
-		<BirthDate>1963-21-11</BirthDate>
+		<BirthDate>1963-11-21</BirthDate>
 		<AgentPercentage>0.12</AgentPercentage>
 	</RealEstateAgent>
 	
@@ -68,7 +68,7 @@
 		<CustomerID>C001</CustomerID>
 		<CustomerName>Balan</CustomerName>
 		<CustomerFirstName>Arnaud</CustomerFirstName>
-		<CustomerBirthDate>1982-12-6</CustomerBirthDate>
+		<CustomerBirthDate>1982-12-06</CustomerBirthDate>
 		<CustomerKids>true</CustomerKids>
 		<CustomerProfession>Lawyer</CustomerProfession>
 		<CustomerLoan>false</CustomerLoan>

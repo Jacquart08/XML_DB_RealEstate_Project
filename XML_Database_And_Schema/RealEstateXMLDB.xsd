@@ -10,9 +10,9 @@
 <!--We are creating here the Database as an element which will contain the different tables of our DB-->
 	<xs:element name="RealEstate_Database" type="RealEstateXMLDB"/>
 	
-	<xs:complextype name="RealEstateXMLDB">
+	<xs:complexType name="RealEstateXMLDB">
 		<xs:sequence>
-			<!--We will here create all the tablestable which are directly related to the properties the agent has to sell-->
+			<!--We will here create all the tables which are directly related to the properties the agent has to sell-->
 			<xs:element name="Properties" type="Property" minOccurs="0" maxOccurs="unbounded"/>
 			<!--Here is the creation of the second table, the one in charge of the RealEstate informations parts-->
 			<xs:element name="RealEstateAgent" type="Agent" minOccurs="1" maxOccurs="unbounded"/> <!--MinOccurs 1 because the system is used by an agent so at least 1 person-->
@@ -29,13 +29,13 @@
 			<!--As teased before we will use the data collected in order to focus the marketing of the company-->
 			<xs:element name="AdvertisingCampaign_table" type="AdvertisingCampaign" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 				
 				
 				
 	<!--The data base has been designed around the properties table. In fact without properties to sell, the whole model is pointless.
 	This table will have a primary key ID and will contain a lot of informations about the houses/appartements.-->
-	<xs:complextype name="Property">
+	<xs:complexType name="Property">
 		<xs:sequence>
 			<xs:element  name="PropertyID" type="xs:ID"/>
 			<xs:element  name="TypeOfContract" type="xs:string"/> <!--Type of contract can be long rent, short rent, to sell, ...-->
@@ -56,9 +56,9 @@
 			<xs:element  name="ClosestSchool" type="xs:float"/> <!--Note for the group, I replaced here BANK by School because I think it is more pertinent-->
 			<xs:element  name="ClosestHospital" type="xs:float"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 				
-	<xs:complextype name="Agent">
+	<xs:complexType name="Agent">
 		<xs:sequence>
 			<xs:element  name="AgentID" type="xs:ID"/> <!--the same manner as the property table, we will gather here the informations about the agent-->
 			<xs:element name="PropertyID" type="xs:IDREF"/>
@@ -68,9 +68,9 @@
 			<xs:element  name="BirthDate" type="xs:date"/>
 			<xs:element  name="AgentPercentage" type="xs:float"/> <!--The percentage isn't a key so we will not be able to reference it in the schema, however it can be used the for the xsl-->
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 				
-	<xs:complextype name="Landlord">
+	<xs:complexType name="Landlord">
 		<xs:sequence>
 			<xs:element  name="LandlordID" type="xs:ID"/>
 			<xs:element  name="PropertyID" type="xs:IDREF"/>
@@ -82,9 +82,9 @@
 			<xs:element  name="LandlordIDCard" type="xs:string"/>
 			<xs:element  name="LandlordBankDetails" type="xs:string"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 							
-	<xs:complextype name="Buyer">
+	<xs:complexType name="Buyer">
 		<xs:sequence>
 			<xs:element  name="BuyerID" type="xs:ID"/>
 			<xs:element  name="BuyerName" type="xs:string"/>
@@ -94,9 +94,9 @@
 			<xs:element  name="BuyerZIPcode" type="xs:integer"/>
 			<xs:element  name="BuyerIDCard" type="xs:string"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 				
-	<xs:complextype name="Notary">
+	<xs:complexType name="Notary">
 		<xs:sequence>
 			<xs:element  name="NotaryID" type="xs:ID"/> <!--the same manner as the property table, we will gather here the informations about the agent-->
 			<xs:element  name="InvoiceID" type="xs:IDREF" />
@@ -108,10 +108,10 @@
 			<xs:element  name="NotarySIRET" type="xs:string"/>
 			<xs:element  name="NotaryPercentage" type="xs:float"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 
 				
-	<xs:complextype name="TargetedCustomer">
+	<xs:complexType name="TargetedCustomer">
 		<xs:sequence>
 			<xs:element  name="CustomerID" type="xs:ID"/>
 			<xs:element  name="CustomerName" type="xs:string"/>
@@ -122,9 +122,9 @@
 			<xs:element  name="CustomerLoan" type="xs:boolean"/>
 			<xs:element  name="CampainMethod" type="xs:string"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 				
-	<xs:complextype name="Sales">
+	<xs:complexType name="Sales">
 		<xs:sequence>
 			<xs:element  name="InvoiceID" type="xs:ID"/>
 			<xs:element  name="InvoiceDate" type="xs:date"/>
@@ -140,9 +140,9 @@
 			<xs:element  name="AgentPercentage" type="xs:float"/>
 			<xs:element  name="FinalPrice" type="xs:float"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 					
-	<xs:complextype name="AdvertisingCampaign">
+	<xs:complexType name="AdvertisingCampaign">
 		<xs:sequence>
 			<xs:element  name="CampaignID" type="xs:ID"/>
 			<xs:element  name="PropertyID" type="xs:IDREF"/>
@@ -152,6 +152,6 @@
 			<xs:element  name="TypeOfProperty" type="xs:string"/>
 			<xs:element  name="CampaignMethod" type="xs:string"/>
 		</xs:sequence>
-	</xs:complextype>
+	</xs:complexType>
 
 </xs:schema>
