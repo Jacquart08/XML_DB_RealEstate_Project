@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:annotation>
-	<xs:documentation xml:lang="eng">
-		This a An XML schema that represent the design of our Real Estate convenient Database.
-		Is with different tables that aim to simplify different tasks of a real estate agent.
-	</xs:documentation>
-</xs:annotation>
+	<xs:annotation>
+		<xs:documentation xml:lang="eng">
+			This a An XML schema that represent the design of our Real Estate convenient Database.
+			Is with different tables that aim to simplify different tasks of a real estate agent.
+		</xs:documentation>
+	</xs:annotation>
 
 <!--We are creating here the Database as an element which will contain the different tables of our DB-->
 	<xs:element name="RealEstate_Datebase" type="RealEstateXMLDB">
