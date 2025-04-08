@@ -1,1 +1,65 @@
+<!-- seller contacts agent to sell their property -->
 
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  declared the stylesheet and set the XSLT version -->
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!--  set the output to be XML with indentation for readability -->
+  <xsl:output method="xml" indent="yes"/>
+
+  <!--  started processing from the root node of the XML -->
+  <xsl:template match="/RealEstate_Database">
+    
+    <!--  created a wrapper element for our output scenario -->
+    <SellerContactScenario>
+
+      <!--  looped through each property listed in the database -->
+      <xsl:for-each select="Properties">
+
+        <!--  stored the PropertyID of the current property in a variable -->
+        <xsl:variable name="propertyID" select="PropertyID" />
+
+        <!--  located the landlord who owns this property using PropertyID -->
+        <xsl:variable name="landlord" select="/RealEstate_Database/LandLordInformations[PropertyID = $propertyID]" />
+        
+        <!--  located the agent associated with this property using PropertyID -->
+        <xsl:variable name="agent" select="/RealEstate_Database/RealEstateAgent[PropertyID = $propertyID]" />
+
+        <!--  started a contact event block showing interaction between landlord and agent -->
+        <ContactEvent>
+
+          <!--  output the property ID involved in this scenario -->
+          <PropertyID><xsl:value-of select="$propertyID"/></PropertyID>
+
+          <!--  created a block to display the landlord's full info -->
+          <Landlord>
+            <FullName>
+              <!--  combined the landlord's first and last name -->
+              <xsl:value-of select="concat($landlord/LandlordFirstName, ' ', $landlord/LandlordName)"/>
+            </FullName>
+            <Address>
+              <!--  combined the landlord's address fields into one string -->
+              <xsl:value-of select="concat($landlord/LandlordAddress, ', ', $landlord/LandlordCity, ' ', $landlord/LandlordZIPcode)"/>
+            </Address>
+          </Landlord>
+
+          <!--  created a block to display the agent's full info -->
+          <Agent>
+            <FullName>
+              <!--  combined the agent's first and last name -->
+              <xsl:value-of select="concat($agent/AgentFirstName, ' ', $agent/AgentName)"/>
+            </FullName>
+            <!--  included the agency's SIRET number for reference -->
+            <AgencySIRET><xsl:value-of select="$agent/AgencySIRET"/></AgencySIRET>
+          </Agent>
+
+          <!--  added a message describing the event -->
+          <Action>Landlord contacted the agent to initiate the sale of the property.</Action>
+        </ContactEvent>
+      </xsl:for-each>
+
+    </SellerContactScenario>
+  </xsl:template>
+
+</xsl:stylesheet>
