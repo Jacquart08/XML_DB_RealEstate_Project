@@ -22,7 +22,7 @@
       <xsl:variable name="propertyZIP" select="$property/ZIPCode"/>
       
       <Property>
-        <ID><xsl:value-of select="$property/PropertyID"/></ID>
+        <PropertyID><xsl:value-of select="$property/PropertyID"/></PropertyID>
         <Address>
           <xsl:value-of select="concat($property/Address, ', ', $property/City, ' ', $property/ZIPCode)"/>
         </Address>
@@ -35,7 +35,7 @@
           <xsl:sort select="NotaryPercentage" data-type="number"/>
           
           <Notary>
-            <ID><xsl:value-of select="NotaryID"/></ID>
+            <NotaryID><xsl:value-of select="NotaryID"/></NotaryID>
             <Name>
               <xsl:value-of select="concat(NotaryFirstName, ' ', NotaryName)"/>
             </Name>
@@ -45,10 +45,10 @@
             <ZIPDistance>
               <xsl:value-of select="abs(NotaryZIPcode - $propertyZIP)"/>
             </ZIPDistance>
-            <FeePercentage>
+            <NotaryPercentage>
               <xsl:value-of select="NotaryPercentage"/>
-            </FeePercentage>
-            <SIRET><xsl:value-of select="NotarySIRET"/></SIRET>
+            </NotaryPercentage>
+            <NotarySIRET><xsl:value-of select="NotarySIRET"/></NotarySIRET>
           </Notary>
         </xsl:for-each>
       </EligibleNotaries>
@@ -61,11 +61,11 @@
           <xsl:value-of select="concat($bestNotary/NotaryFirstName, ' ', $bestNotary/NotaryName)"/>
         </Name>
         <Distance>
-          <xsl:value-of select="abs($bestNotary/NotaryZIPcode - $propertyZIP)"/> km (ZIP code difference)
+          <xsl:value-of select="abs($bestNotary/NotaryZIPcode - $propertyZIP)"/> (ZIP code difference)
         </Distance>
-        <Fee>
+        <NotaryPercentage>
           <xsl:value-of select="$bestNotary/NotaryPercentage"/>%
-        </Fee>
+        </NotaryPercentage>
       </RecommendedNotary>
     </NotaryRecommendation>
   </xsl:template>
