@@ -33,9 +33,9 @@
 			<ExteriorCommodity>true</ExteriorCommodity>
 			<HeatingMode>Fuel</HeatingMode>
 			<EnergyDiagnostic>E</EnergyDiagnostic>
-			<Address>94 rue du bac</Address>
-			<City>Paris</City>
-			<ZIPCode>75006</ZIPCode>
+			<Address>123, rue de lalala</Address>
+			<City>Rouen</City>
+			<ZIPCode>36521</ZIPCode>
 			<Size>154.8</Size>
 			<NumberOfRooms>4</NumberOfRooms>
 			<PriceEstimation>800000</PriceEstimation>
