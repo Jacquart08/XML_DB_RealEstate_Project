@@ -1,94 +1,134 @@
 <RealEstate_Database>
 	<Properties>
-		<PropertyID>P001</PropertyID>
-		<TypeOfContract>Sales</TypeOfContract>
-		<TypeOfProperty>House</TypeOfProperty>
-		<Floors>2</Floors>
-		<ExteriorCommodity>true</ExteriorCommodity>
-		<HeatingMode>Fuel</HeatingMode>
-		<EnergyDiagnostic>E</EnergyDiagnostic>
-		<Address>94 rue du bac</Address>
-		<City>Paris</City>
-		<ZIPCode>75006</ZIPCode>
-		<Size>154.8</Size>
-		<NumberOfRooms>4</NumberOfRooms>
-		<PriceEstimation>800000</PriceEstimation>
-		<Attractiveness>0.5</Attractiveness>
-		<ClosestSupermarket>0.5</ClosestSupermarket>
-		<ClosestPublicTransport>0.5</ClosestPublicTransport>
-		<ClosestSchool>0.5</ClosestSchool>
-		<ClosestHospital>0.5</ClosestHospital>
+		<Property>
+			<PropertyID>P001</PropertyID>
+			<AgentID>A001</AgentID>
+			<LandlordID>L001</LandlordID>
+			<TypeOfContract>Sales</TypeOfContract>
+			<TypeOfProperty>House</TypeOfProperty>
+			<Floors>2</Floors>
+			<ExteriorCommodity>true</ExteriorCommodity>
+			<HeatingMode>Fuel</HeatingMode>
+			<EnergyDiagnostic>E</EnergyDiagnostic>
+			<Address>94 rue du bac</Address>
+			<City>Paris</City>
+			<ZIPCode>75006</ZIPCode>
+			<Size>154.8</Size>
+			<NumberOfRooms>4</NumberOfRooms>
+			<PriceEstimation>800000</PriceEstimation>
+			<Attractiveness>0.5</Attractiveness>
+			<ClosestSupermarket>0.5</ClosestSupermarket>
+			<ClosestPublicTransport>0.5</ClosestPublicTransport>
+			<ClosestSchool>0.5</ClosestSchool>
+			<ClosestHospital>0.5</ClosestHospital>
+		</Property>
+
+		<Property>
+			<PropertyID>P002</PropertyID>
+			<AgentID>A001</AgentID>
+			<LandlordID>L001</LandlordID>
+			<TypeOfContract>Sales</TypeOfContract>
+			<TypeOfProperty>House</TypeOfProperty>
+			<Floors>2</Floors>
+			<ExteriorCommodity>true</ExteriorCommodity>
+			<HeatingMode>Fuel</HeatingMode>
+			<EnergyDiagnostic>E</EnergyDiagnostic>
+			<Address>94 rue du bac</Address>
+			<City>Paris</City>
+			<ZIPCode>75006</ZIPCode>
+			<Size>154.8</Size>
+			<NumberOfRooms>4</NumberOfRooms>
+			<PriceEstimation>800000</PriceEstimation>
+			<Attractiveness>0.5</Attractiveness>
+			<ClosestSupermarket>0.5</ClosestSupermarket>
+			<ClosestPublicTransport>0.5</ClosestPublicTransport>
+			<ClosestSchool>0.5</ClosestSchool>
+			<ClosestHospital>0.5</ClosestHospital>
+		</Property>
+			
 	</Properties>
 	
 	<RealEstateAgent>
-		<AgentID>A001</AgentID>
-		<PropertyID>P001</PropertyID>
-		<AgentName>Doe</AgentName>
-		<AgentFirstName>John</AgentFirstName>
-		<AgencySIRET>123AB456</AgencySIRET>
-		<BirthDate>1963-11-21</BirthDate>
-		<AgentPercentage>0.12</AgentPercentage>
+		<Agent>
+			<AgentID>A001</AgentID>
+			<PropertyID>P001</PropertyID>
+			<AgentName>Doe</AgentName>
+			<AgentFirstName>John</AgentFirstName>
+			<AgencySIRET>123AB456</AgencySIRET>
+			<BirthDate>1963-11-21</BirthDate>
+			<AgentPercentage>0.12</AgentPercentage>
+		</Agent>
 	</RealEstateAgent>
-	
+
 	<LandLordInformations>
-		<LandlordID>L001</LandlordID>
-		<PropertyID>P001</PropertyID>
-		<LandlordName>Dupont</LandlordName>
-		<LandlordFirstName>Jean</LandlordFirstName>
-		<LandlordAddress>35 rue du four</LandlordAddress>
-		<LandlordCity>Malakoff</LandlordCity>
-		<LandlordZIPcode>92130</LandlordZIPcode>
-		<LandlordIDCard>DA9547D45</LandlordIDCard>
-		<LandlordBankDetails>4521A15487V1549E</LandlordBankDetails>
+		<Landlord>
+			<LandlordID>L001</LandlordID>
+			<PropertyID>P001</PropertyID>
+			<LandlordName>Dupont</LandlordName>
+			<LandlordFirstName>Jean</LandlordFirstName>
+			<LandlordAddress>35 rue du four</LandlordAddress>
+			<LandlordCity>Malakoff</LandlordCity>
+			<LandlordZIPcode>92130</LandlordZIPcode>
+			<LandlordIDCard>DA9547D45</LandlordIDCard>
+			<LandlordBankDetails>4521A15487V1549E</LandlordBankDetails>
+		</Landlord>
 	</LandLordInformations>
-	
+
 	<BuyerInformations>
-		<BuyerID>B001</BuyerID>
-		<BuyerName>Lalala</BuyerName>
-		<BuyerFirstName>Paul</BuyerFirstName>
-		<BuyerAddress>21 route du chemin</BuyerAddress>
-		<BuyerCity>Tourcoing</BuyerCity>
-		<BuyerZIPcode>34520</BuyerZIPcode>
-		<BuyerIDCard>65211VV4587</BuyerIDCard>
+		<Buyer>
+			<BuyerID>B001</BuyerID>
+			<BuyerName>Lalala</BuyerName>
+			<BuyerFirstName>Paul</BuyerFirstName>
+			<BuyerAddress>21 route du chemin</BuyerAddress>
+			<BuyerCity>Tourcoing</BuyerCity>
+			<BuyerZIPcode>34520</BuyerZIPcode>
+			<BuyerIDCard>65211VV4587</BuyerIDCard>
+		</Buyer>
 	</BuyerInformations>
-	
+
 	<NotaryInformations>
-		<NotaryID>N001</NotaryID>
-		<InvoiceID>I001</InvoiceID>
-		<NotaryName>Ledroit</NotaryName>
-		<NotaryFirstName>Norbert</NotaryFirstName>
-		<NotaryAddress>25 rue des pavés</NotaryAddress>
-		<NotaryCity>Paris</NotaryCity>
-		<NotaryZIPcode>75006</NotaryZIPcode>
-		<NotarySIRET>TS452145</NotarySIRET>
-		<NotaryPercentage>0.155</NotaryPercentage>
+		<Notary>
+			<NotaryID>N001</NotaryID>
+			<InvoiceID>I001</InvoiceID>
+			<NotaryName>Ledroit</NotaryName>
+			<NotaryFirstName>Norbert</NotaryFirstName>
+			<NotaryAddress>25 rue des pavés</NotaryAddress>
+			<NotaryCity>Paris</NotaryCity>
+			<NotaryZIPcode>75006</NotaryZIPcode>
+			<NotarySIRET>TS452145</NotarySIRET>
+			<NotaryPercentage>0.155</NotaryPercentage>
+		</Notary>
 	</NotaryInformations>
-	
+
 	<TargetedCustomerInformation>
-		<CustomerID>C001</CustomerID>
-		<CustomerName>Balan</CustomerName>
-		<CustomerFirstName>Arnaud</CustomerFirstName>
-		<CustomerBirthDate>1982-12-06</CustomerBirthDate>
-		<CustomerKids>true</CustomerKids>
-		<CustomerProfession>Lawyer</CustomerProfession>
-		<CustomerLoan>false</CustomerLoan>
-		<CampainMethod>Internet</CampainMethod>
+		<TargetedCustomer>
+			<CustomerID>C001</CustomerID>
+			<CustomerName>Balan</CustomerName>
+			<CustomerFirstName>Arnaud</CustomerFirstName>
+			<CustomerBirthDate>1982-12-06</CustomerBirthDate>
+			<CustomerKids>true</CustomerKids>
+			<CustomerProfession>Lawyer</CustomerProfession>
+			<CustomerLoan>false</CustomerLoan>
+			<CampainMethod>Internet</CampainMethod>
+		</TargetedCustomer>
 	</TargetedCustomerInformation>
-	
+
 	<Sales_Table>
-		<InvoiceID>I001</InvoiceID>
-		<InvoiceDate>2024-01-23</InvoiceDate>
-		<TypeOfContract>Sales</TypeOfContract>
-		<PropertyID>P001</PropertyID>
-		<LandlordID>L001</LandlordID>
-		<BuyerID>B001</BuyerID>
-		<AgentID>A001</AgentID>
-		<NotaryID>N001</NotaryID>
-		<ZIPCode>75006</ZIPCode>
-		<Price>800000</Price>
-		<NotaryPercentage>0.155</NotaryPercentage>
-		<AgentPercentage>0.12</AgentPercentage>
-		<FinalPrice>1020000</FinalPrice>
+		<Sales>
+			<InvoiceID>I001</InvoiceID>
+			<InvoiceDate>2024-01-23</InvoiceDate>
+			<TypeOfContract>Sales</TypeOfContract>
+			<PropertyID>P001</PropertyID>
+			<LandlordID>L001</LandlordID>
+			<BuyerID>B001</BuyerID>
+			<AgentID>A001</AgentID>
+			<NotaryID>N001</NotaryID>
+			<ZIPCode>75006</ZIPCode>
+			<Price>800000</Price>
+			<NotaryPercentage>0.155</NotaryPercentage>
+			<AgentPercentage>0.12</AgentPercentage>
+			<FinalPrice>1020000</FinalPrice>
+		</Sales>
 	</Sales_Table>
-	
 </RealEstate_Database>
+
