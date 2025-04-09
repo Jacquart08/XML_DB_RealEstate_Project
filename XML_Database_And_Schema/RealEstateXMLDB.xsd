@@ -38,6 +38,8 @@
 	<xs:complexType name="Property">
 		<xs:sequence>
 			<xs:element  name="PropertyID" type="xs:ID"/>
+			<xs:element  name="AgentID" type="xs:IDREF"/>
+			<xs:element  name="LandlordID" type="xs:IDREF"/>
 			<xs:element  name="TypeOfContract" type="xs:string"/> <!--Type of contract can be long rent, short rent, to sell, ...-->
 			<xs:element  name="TypeOfProperty" type="xs:string"/> <!--The type of property (appartment, house, garage, ...)-->
 			<xs:element  name="Floors" type="xs:integer"/> <!--number of floors for house, or how heigh is an apprtement, 0 for ground floor-->
