@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" indent="yes"/>
+
+
+
+
   
   <!-- Seller contacts agent to sell their property -->
+
+
+
+
+  
   <xsl:template match="/RealEstate_Database">
     <!-- Use your original RealEstate_Database as the root element instead of creating a new one -->
     <RealEstate_Database>
