@@ -28,22 +28,45 @@
 			<AgentID>A001</AgentID>
 			<LandlordID>L001</LandlordID>
 			<TypeOfContract>Sales</TypeOfContract>
-			<TypeOfProperty>House</TypeOfProperty>
-			<Floors>2</Floors>
-			<ExteriorCommodity>true</ExteriorCommodity>
-			<HeatingMode>Fuel</HeatingMode>
-			<EnergyDiagnostic>E</EnergyDiagnostic>
+			<TypeOfProperty>Appartment</TypeOfProperty>
+			<Floors>4</Floors>
+			<ExteriorCommodity>false</ExteriorCommodity>
+			<HeatingMode>Electricity</HeatingMode>
+			<EnergyDiagnostic>B</EnergyDiagnostic>
 			<Address>123, rue de lalala</Address>
 			<City>Rouen</City>
 			<ZIPCode>36521</ZIPCode>
-			<Size>154.8</Size>
+			<Size>64.6</Size>
 			<NumberOfRooms>4</NumberOfRooms>
-			<PriceEstimation>800000</PriceEstimation>
-			<Attractiveness>0.5</Attractiveness>
-			<ClosestSupermarket>0.5</ClosestSupermarket>
-			<ClosestPublicTransport>0.5</ClosestPublicTransport>
-			<ClosestSchool>0.5</ClosestSchool>
-			<ClosestHospital>0.5</ClosestHospital>
+			<PriceEstimation>120000</PriceEstimation>
+			<Attractiveness>2</Attractiveness>
+			<ClosestSupermarket>1</ClosestSupermarket>
+			<ClosestPublicTransport>3</ClosestPublicTransport>
+			<ClosestSchool>1</ClosestSchool>
+			<ClosestHospital>3</ClosestHospital>
+		</Property>
+		
+		<Property>
+			<PropertyID>P003</PropertyID>
+			<AgentID>A001</AgentID>
+			<LandlordID>L002</LandlordID>
+			<TypeOfContract>Sales</TypeOfContract>
+			<TypeOfProperty>House</TypeOfProperty>
+			<Floors>1</Floors>
+			<ExteriorCommodity>true</ExteriorCommodity>
+			<HeatingMode>Gaz</HeatingMode>
+			<EnergyDiagnostic>D</EnergyDiagnostic>
+			<Address>11 chemin du gravier</Address>
+			<City>Issy</City>
+			<ZIPCode>92130</ZIPCode>
+			<Size>120.6</Size>
+			<NumberOfRooms>6</NumberOfRooms>
+			<PriceEstimation>200000</PriceEstimation>
+			<Attractiveness>4</Attractiveness>
+			<ClosestSupermarket>3</ClosestSupermarket>
+			<ClosestPublicTransport>2</ClosestPublicTransport>
+			<ClosestSchool>8</ClosestSchool>
+			<ClosestHospital>0.2</ClosestHospital>
 		</Property>
 			
 	</Properties>
