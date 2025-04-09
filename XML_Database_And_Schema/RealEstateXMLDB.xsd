@@ -7,35 +7,42 @@
 		</xs:documentation>
 	</xs:annotation>
 
-<!--We are creating here the Database as an element which will contain the different tables of our DB-->
 	<xs:element name="RealEstate_Database" type="RealEstateXMLDB"/>
-	
+
+<!--We are creating here the Database as an element which will contain the different tables of our DB-->
 	<xs:complexType name="RealEstateXMLDB">
 		<xs:sequence>
 			<!--We will here create all the tables which are directly related to the properties the agent has to sell-->
-			<xs:element name="Properties" type="Property" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Properties" type="PropertyCatalog" minOccurs="0" maxOccurs="unbounded"/>
 			<!--Here is the creation of the second table, the one in charge of the RealEstate informations parts-->
-			<xs:element name="RealEstateAgent" type="Agent" minOccurs="1" maxOccurs="unbounded"/> <!--MinOccurs 1 because the system is used by an agent so at least 1 person-->
+			<xs:element name="RealEstateAgent" type="AgentCatalog" minOccurs="1" maxOccurs="unbounded"/> <!--MinOccurs 1 because the system is used by an agent so at least 1 person-->
 			<!--We will here crate the table which will contains all the informations about the Landlords who want to sell their properties-->
-			<xs:element name="LandLordInformations" type="Landlord" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="LandLordInformations" type="LandlordCatalog" minOccurs="0" maxOccurs="unbounded"/>
 			<!--As before, creation of a new table, for the informations regarding the buyer this time-->
-			<xs:element name="BuyerInformations" type="Buyer" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="BuyerInformations" type="BuyerCatalog" minOccurs="0" maxOccurs="unbounded"/>
 			<!--Same reasonment as before, but here for the legal part of the sales, the mandatory Notary !!-->
-			<xs:element name="NotaryInformations" type="Notary" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="NotaryInformations" type="NotaryCatalog" minOccurs="1" maxOccurs="unbounded"/>
 			<!--A good idea would be to collect some informations about pontential buyers in order to do some targeted advertisment campaign-->
-			<xs:element name="TargetedCustomerInformation" type="TargetedCustomer" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TargetedCustomerInformation" type="TargetedCustomerCatalog" minOccurs="0" maxOccurs="unbounded"/>
 			<!--We will here handle the final sale of a property in order to generate the invoices-->
-			<xs:element name="Sales_Table" type="Sales" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Sales_Table" type="SalesCatalog" minOccurs="0" maxOccurs="unbounded"/>
 			<!--As teased before we will use the data collected in order to focus the marketing of the company-->
-			<xs:element name="AdvertisingCampaign_table" type="AdvertisingCampaign" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdvertisingCampaign_table" type="AdvertisingCampaignCatalog" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 				
 				
 				
 	<!--The data base has been designed around the properties table. In fact without properties to sell, the whole model is pointless.
 	This table will have a primary key ID and will contain a lot of informations about the houses/appartements.-->
-	<xs:complexType name="Property">
+	<xs:complexType name="PropertyCatalog">
+		<xs:sequence>
+			<xs:element name="Property" type="PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+			
+	<xs:complexType name="PropertyType">
 		<xs:sequence>
 			<xs:element  name="PropertyID" type="xs:ID"/>
 			<xs:element  name="AgentID" type="xs:IDREF"/>
@@ -57,10 +64,16 @@
 			<xs:element  name="ClosestPublicTransport" type="xs:float"/>
 			<xs:element  name="ClosestSchool" type="xs:float"/> <!--Note for the group, I replaced here BANK by School because I think it is more pertinent-->
 			<xs:element  name="ClosestHospital" type="xs:float"/>
+		</xs:sequence>		
+	</xs:complexType>					
+	
+	<xs:complexType name="AgentCatalog">
+		<xs:sequence>
+			<xs:element name="Agent" type="AgentType" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-				
-	<xs:complexType name="Agent">
+	
+	<xs:complexType name="AgentType">
 		<xs:sequence>
 			<xs:element  name="AgentID" type="xs:ID"/> <!--the same manner as the property table, we will gather here the informations about the agent-->
 			<xs:element name="PropertyID" type="xs:IDREF"/>
@@ -71,8 +84,14 @@
 			<xs:element  name="AgentPercentage" type="xs:float"/> <!--The percentage isn't a key so we will not be able to reference it in the schema, however it can be used the for the xsl-->
 		</xs:sequence>
 	</xs:complexType>
-				
-	<xs:complexType name="Landlord">
+	
+	<xs:complexType name="LandlordCatalog">
+		<xs:sequence>
+			<xs:element name="Landlord" type="LandlordType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="LandlordType">
 		<xs:sequence>
 			<xs:element  name="LandlordID" type="xs:ID"/>
 			<xs:element  name="PropertyID" type="xs:IDREF"/>
@@ -85,8 +104,14 @@
 			<xs:element  name="LandlordBankDetails" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
-							
-	<xs:complexType name="Buyer">
+			
+	<xs:complexType name="BuyerCatalog">
+		<xs:sequence>
+			<xs:element name="Buyer" type="BuyerType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+			
+	<xs:complexType name="BuyerType">
 		<xs:sequence>
 			<xs:element  name="BuyerID" type="xs:ID"/>
 			<xs:element  name="BuyerName" type="xs:string"/>
@@ -98,7 +123,13 @@
 		</xs:sequence>
 	</xs:complexType>
 				
-	<xs:complexType name="Notary">
+	<xs:complexType name="NotaryCatalog">
+		<xs:sequence>
+			<xs:element name="Notary" type="NotaryType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+				
+	<xs:complexType name="NotaryType">
 		<xs:sequence>
 			<xs:element  name="NotaryID" type="xs:ID"/> <!--the same manner as the property table, we will gather here the informations about the agent-->
 			<xs:element  name="InvoiceID" type="xs:IDREF" />
@@ -112,8 +143,13 @@
 		</xs:sequence>
 	</xs:complexType>
 
-				
-	<xs:complexType name="TargetedCustomer">
+	<xs:complexType name="TargetedCustomerCatalog">
+		<xs:sequence>
+			<xs:element name="TargetedCustomer" type="TargetedCustomerType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="TargetedCustomerType">
 		<xs:sequence>
 			<xs:element  name="CustomerID" type="xs:ID"/>
 			<xs:element  name="CustomerName" type="xs:string"/>
@@ -125,8 +161,14 @@
 			<xs:element  name="CampainMethod" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
-				
-	<xs:complexType name="Sales">
+	
+	<xs:complexType name="SalesCatalog">
+		<xs:sequence>
+			<xs:element name="Sales" type="SalesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SalesType">
 		<xs:sequence>
 			<xs:element  name="InvoiceID" type="xs:ID"/>
 			<xs:element  name="InvoiceDate" type="xs:date"/>
@@ -143,8 +185,14 @@
 			<xs:element  name="FinalPrice" type="xs:float"/>
 		</xs:sequence>
 	</xs:complexType>
-					
-	<xs:complexType name="AdvertisingCampaign">
+						
+	<xs:complexType name="AdvertisingCampaignCatalog">
+		<xs:sequence>
+			<xs:element name="AdvertisingCampaign" type="AdvertisingCampaignType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>					
+						
+	<xs:complexType name="AdvertisingCampaignType">
 		<xs:sequence>
 			<xs:element  name="CampaignID" type="xs:ID"/>
 			<xs:element  name="PropertyID" type="xs:IDREF"/>
