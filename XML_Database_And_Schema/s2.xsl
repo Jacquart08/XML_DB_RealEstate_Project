@@ -3,7 +3,17 @@
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+
+
+
+
+  
   <!-- Realstate agent is looking to run an advertising campaign / web ads format  -->
+
+
+
+
+  
   <xsl:output method="xml" indent="yes"/>
 
   <!-- Start the template processing from the root node of the XML -->
