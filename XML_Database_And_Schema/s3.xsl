@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" 
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <xsl:output method="xml" indent="yes"/>
-    
+
     <!-- PARAMETERS: Adjust these values to change search criteria -->
     <xsl:param name="maxPrice" select="250000"/>       <!-- Maximum acceptable price in euros -->
     <xsl:param name="minSize" select="40"/>            <!-- Minimum size in square meters -->
@@ -19,16 +19,15 @@
             <Properties>
                 <xsl:comment> Filtered properties matching criteria for price-sensitive buyers </xsl:comment>
                 <xsl:comment> Max Price: <xsl:value-of select="$maxPrice"/> | Min Size: <xsl:value-of select="$minSize"/> </xsl:comment>
-                
+
                 <!-- PROCESS PROPERTIES THAT MATCH OUR CRITERIA -->
                 <xsl:apply-templates select="RealEstate_Database/Properties/Property[
-                    PriceEstimation &lt;= $maxPrice and 
+                    PriceEstimation &lt;= $maxPrice and
                     Size &gt;= $minSize and
                     Attractiveness &lt;= $maxAttractiveness and
-                    matches(
-                        translate(TypeOfProperty, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),
-                        $preferredPropertyTypes
-                    )
+                    (contains(translate(TypeOfProperty, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'apartment') or
+                     contains(translate(TypeOfProperty, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'studio') or
+                     contains(translate(TypeOfProperty, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'loft'))
                 ]">
                     <!-- Sort by price per square meter (cheapest first) -->
                     <xsl:sort select="PriceEstimation div Size" data-type="number" order="ascending"/>
@@ -36,7 +35,7 @@
             </Properties>
         </RealEstate_Database>
     </xsl:template>
-    
+
     <!-- PROPERTY TEMPLATE: Formats each matching property (using exact schema-defined structure) -->
     <xsl:template match="Property">
         <Property>
@@ -61,14 +60,14 @@
             <ClosestPublicTransport><xsl:value-of select="ClosestPublicTransport"/></ClosestPublicTransport>
             <ClosestSchool><xsl:value-of select="ClosestSchool"/></ClosestSchool>
             <ClosestHospital><xsl:value-of select="ClosestHospital"/></ClosestHospital>
-            
+
             <!-- Calculated fields as comments since they're not in schema -->
             <xsl:comment> pricePerSquareMeter: <xsl:value-of select="format-number(PriceEstimation div Size, '#,##0.00')"/>€/m² </xsl:comment>
             <xsl:comment> formattedPrice: <xsl:value-of select="format-number(PriceEstimation, '#,##0')"/>€ </xsl:comment>
         </Property>
     </xsl:template>
-    
+
     <!-- SUPPRESS ALL UNMATCHED TEXT -->
     <xsl:template match="text()"/>
-    
+
 </xsl:stylesheet>
