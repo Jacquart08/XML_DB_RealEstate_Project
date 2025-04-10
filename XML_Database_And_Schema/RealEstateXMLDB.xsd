@@ -6,13 +6,13 @@
 			Is with different tables that aim to simplify different tasks of a real estate agent.
 		</xs:documentation>
 	</xs:annotation>
-
+	<!--Declaring the first element on our-->
 	<xs:element name="RealEstate_Database" type="RealEstateXMLDB"/>
 
-<!--We are creating here the Database as an element which will contain the different tables of our DB-->
+<!--We are here putting elements inside the element. Here the Database as an element which will contain the different tables of our DB-->
 	<xs:complexType name="RealEstateXMLDB">
 		<xs:sequence>
-			<!--We will here create all the tables which are directly related to the properties the agent has to sell-->
+			<!--We will here Declare all the tables which are directly related to the properties the agent has to sell-->
 			<xs:element name="Properties" type="PropertyCatalog" minOccurs="0" maxOccurs="unbounded"/>
 			<!--Here is the creation of the second table, the one in charge of the RealEstate informations parts-->
 			<xs:element name="RealEstateAgent" type="AgentCatalog" minOccurs="1" maxOccurs="unbounded"/> <!--MinOccurs 1 because the system is used by an agent so at least 1 person-->
@@ -36,6 +36,8 @@
 				
 	<!--The data base has been designed around the properties table. In fact without properties to sell, the whole model is pointless.
 	This table will have a primary key ID and will contain a lot of informations about the houses/appartements.-->
+	<!--For all the following code the reasonment is the same, we already declared an element of the DB as catalog type, the one are containing the entries of
+	Types that are then further defined-->
 	<xs:complexType name="PropertyCatalog">
 		<xs:sequence>
 			<xs:element name="Property" type="PropertyType" minOccurs="0" maxOccurs="unbounded"/>
