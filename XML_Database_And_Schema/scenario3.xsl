@@ -4,6 +4,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <xsl:output method="xml" indent="yes"/>
+    
+    <!-- Without children and not near amenities  -->
 
     <!-- PARAMETERS: Adjust these values to change search criteria -->
     <xsl:param name="maxPrice" select="250000"/>       <!-- Maximum acceptable price in euros -->
