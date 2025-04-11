@@ -6,22 +6,21 @@
     <xsl:output method="xml" indent="yes"/>
     <!-- With children and near amenities  -->
 
-    <!-- PARAMETERS: Adjust these values to change search criteria -->
+    <!-- audjusting  these values to change search criteria -->
     <xsl:param name="maxPrice" select="350000"/>       <!-- Maximum acceptable price in euros -->
     <xsl:param name="minSize" select="60"/>            <!-- Minimum size in square meters -->
     <xsl:param name="minAttractiveness" select="0.6"/> <!-- Lower values mean closer to amenities -->
     <xsl:param name="preferredPropertyTypes" select="'house|apartment|duplex'"/> <!-- Regex pattern for property types -->
 
-    <!-- MAIN TEMPLATE: Entry point for transformation -->
+    <!-- Entry point for transformation -->
     <xsl:template match="/">
-        <!-- Using RealEstate_Database as root since it's the defined root element -->
         <RealEstate_Database>
-            <!-- Create a new Properties element to hold our filtered results -->
+            <!-- Creating a new Properties element to hold our filtered results -->
             <Properties>
                 <xsl:comment> Filtered properties matching criteria for families with children </xsl:comment>
                 <xsl:comment> Max Price: <xsl:value-of select="$maxPrice"/> | Min Size: <xsl:value-of select="$minSize"/> </xsl:comment>
 
-                <!-- PROCESS PROPERTIES THAT MATCH OUR CRITERIA -->
+                <!-- PROCESSS PROPERTIES THAT MATCH OUR CRITERIA -->
                 <xsl:apply-templates select="RealEstate_Database/Properties/Property[
                     PriceEstimation &lt;= $maxPrice and
                     Size &gt;= $minSize and
