@@ -1,0 +1,39 @@
+<RealEstate_Database>
+	<Properties>
+        <Property>
+            <PropertyID>P001</PropertyID>
+            <AgentID>A001</AgentID>
+            <LandlordID>L001</LandlordID>
+            <TypeOfContract>Sales</TypeOfContract>
+            <TypeOfProperty>House</TypeOfProperty>
+            <Floors>2</Floors>
+            <ExteriorCommodity>true</ExteriorCommodity>
+            <HeatingMode>Fuel</HeatingMode>
+            <EnergyDiagnostic>E</EnergyDiagnostic>
+            <Address>94 rue du bac</Address>
+            <City>Paris</City>
+            <ZIPCode>75006</ZIPCode>
+            <Size>154.8</Size>
+            <NumberOfRooms>4</NumberOfRooms>
+            <PriceEstimation>800000</PriceEstimation>
+            <Attractiveness>0.5</Attractiveness>
+            <ClosestSupermarket>0.5</ClosestSupermarket>
+            <ClosestPublicTransport>0.5</ClosestPublicTransport>
+            <ClosestSchool>0.5</ClosestSchool>
+            <ClosestHospital>0.5</ClosestHospital>
+        </Property>
+	</Properties>
+	<NotaryInformations>
+        <Notary>
+            <NotaryID>N001</NotaryID>
+            <InvoiceID>I001</InvoiceID>
+            <NotaryName>Ledroit</NotaryName>
+            <NotaryFirstName>Norbert</NotaryFirstName>
+            <NotaryAddress>25 rue des pavés</NotaryAddress>
+            <NotaryCity>Paris</NotaryCity>
+            <NotaryZIPcode>75006</NotaryZIPcode>
+            <NotarySIRET>TS452145</NotarySIRET>
+            <NotaryPercentage>0.155</NotaryPercentage>
+        </Notary>
+	</NotaryInformations>
+</RealEstate_Database>
