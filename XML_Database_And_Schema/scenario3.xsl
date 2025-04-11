@@ -7,17 +7,16 @@
     
     <!-- Without children and not near amenities  -->
 
-    <!-- PARAMETERS: Adjust these values to change search criteria -->
     <xsl:param name="maxPrice" select="250000"/>       <!-- Maximum acceptable price in euros -->
     <xsl:param name="minSize" select="40"/>            <!-- Minimum size in square meters -->
     <xsl:param name="maxAttractiveness" select="0.4"/> <!-- Higher values mean closer to amenities -->
     <xsl:param name="preferredPropertyTypes" select="'apartment|studio|loft'"/> <!-- Regex pattern for property types -->
 
-    <!-- MAIN TEMPLATE: Entry point for transformation -->
+    <!--Entry point for transformation -->
     <xsl:template match="/">
         <!-- Using RealEstate_Database as root since it's the defined root element -->
         <RealEstate_Database>
-            <!-- Create a new Properties element to hold our filtered results -->
+            <!-- a new Properties element to hold our filtered results -->
             <Properties>
                 <xsl:comment> Filtered properties matching criteria for price-sensitive buyers </xsl:comment>
                 <xsl:comment> Max Price: <xsl:value-of select="$maxPrice"/> | Min Size: <xsl:value-of select="$minSize"/> </xsl:comment>
@@ -31,14 +30,14 @@
                      contains(translate(TypeOfProperty, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'studio') or
                      contains(translate(TypeOfProperty, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'loft'))
                 ]">
-                    <!-- Sort by price per square meter (cheapest first) -->
+                    <!-- by price per square meter (cheapest first) -->
                     <xsl:sort select="PriceEstimation div Size" data-type="number" order="ascending"/>
                 </xsl:apply-templates>
             </Properties>
         </RealEstate_Database>
     </xsl:template>
 
-    <!-- PROPERTY TEMPLATE: Formats each matching property (using exact schema-defined structure) -->
+    <!-- Formats each matching property (using exact schema-defined structure) -->
     <xsl:template match="Property">
         <Property>
             <!-- All these elements are defined in the schema's PropertyType complexType -->
@@ -69,7 +68,6 @@
         </Property>
     </xsl:template>
 
-    <!-- SUPPRESS ALL UNMATCHED TEXT -->
     <xsl:template match="text()"/>
 
 </xsl:stylesheet>
