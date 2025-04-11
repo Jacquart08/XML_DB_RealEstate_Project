@@ -4,9 +4,8 @@
 
     <!-- Seller contacts agent to sell their property -->
     <xsl:template match="/RealEstate_Database">
-        <!-- Use your original RealEstate_Database as the root element instead of creating a new one -->
         <RealEstate_Database>
-            <!-- We'll use a standard element from your schema - we're creating a focused "view" of the data -->
+            <!-- We'll use a standard element from our schema - we're creating a focused view of the data -->
             <Properties>
                 <xsl:for-each select="Properties/Property">
                     <xsl:variable name="currentPropertyID" select="PropertyID"/>
@@ -22,7 +21,6 @@
                         <ZIPCode><xsl:value-of select="ZIPCode"/></ZIPCode>
                         <Size><xsl:value-of select="Size"/></Size>
                         <PriceEstimation><xsl:value-of select="PriceEstimation"/></PriceEstimation>
-                        <!-- Add custom elements that use existing XML tags -->
                         <SellerName>
                             <xsl:value-of select="$landlord/LandlordFirstName"/><xsl:text> </xsl:text><xsl:value-of select="$landlord/LandlordName"/>
                         </SellerName>
@@ -37,7 +35,6 @@
                 </xsl:for-each>
             </Properties>
 
-            <!-- Add a comment to explain what this transformed document represents -->
             <xsl:comment>
                 This document represents the scenario where a seller contacts an agent to sell their property.
                 The data has been extracted from the original database to highlight the relevant information.
